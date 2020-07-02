@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>互联网广告 &mdash; deeplearning 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="反欺诈模型" href="anti-fraud-model.html" />
+    <link rel="prev" title="A/B test" href="AB-test.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> deeplearning
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SPC.html">统计过程控制理论与实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6sigma.html">六西格玛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6sigma_resolution.html">六西格玛革命</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jingyisixiang.html">精益思想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moshishibie.html">模式识别在化学化工中的应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PLS.html">偏最小二乘回归</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AB-test.html">A/B test</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">互联网广告</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#header-n3">互联网广告简史</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#header-n4">广告售卖方式历史</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header-n74">计费方式历史</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n102">互联网广告类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#header-n120">搜索广告</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header-n121">定向广告</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header-n122">实时广告竞价</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header-n123">广告系统架构</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anti-fraud-model.html">反欺诈模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-list.html">Book List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business-knowledge.html">商业知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux_kernel.html">Linux 内核</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Logical_Thinking.html">逻辑思维</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PLS.html">偏最小二乘回归</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seven-habits-of-efficient-people.html">习惯成为一个高效的人</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistic.html">统计学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistic.html#header-n59">统计推断理论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-portrait.html">用户画像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-portrait.html#header-n70">用户画像数据定义</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-portrait.html#header-n73">用户画像的几个关键技术点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beautiful_math.html">美丽的数学</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">deeplearning</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>互联网广告</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Ad.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="header-n0">
+<span id="id1"></span><h1>互联网广告<a class="headerlink" href="#header-n0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="header-n3">
+<span id="id2"></span><h2>互联网广告简史<a class="headerlink" href="#header-n3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="header-n4">
+<span id="id3"></span><h3>广告售卖方式历史<a class="headerlink" href="#header-n4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>显示广告(Display Advertising)</p>
+<ul>
+<li><p>互联网页面中的条幅(banner)广告</p>
+<ul>
+<li><p>工程师把HTML的代码嵌入到网站的某个位置，没有复杂的在线计算</p></li>
+</ul>
+</li>
+<li><p>合约广告(Agreement-based Advertising)</p>
+<ul>
+<li><p>采用合同约束的方式，让某一广告位在某一段时间被特定广告主所独占</p></li>
+</ul>
+</li>
+<li><p>位置、时间售卖</p></li>
+</ul>
+</li>
+<li><p>定向广告(Targetd Advertising)</p>
+<ul>
+<li><p>通过受众定向技术(Audience Targeting)分析用户的属性(User
+Profile)标签(性别、年龄…)，通过广告投放服务(Ad
+Server)，将原来静态的广告HTML代码转变为根据算法实时变换广告HTML代码，返回给浏览器</p></li>
+</ul>
+</li>
+<li><p>担保式投放(Guarnateed Delivery)</p>
+<ul>
+<li><p>网站作为媒体方，需要跟广告主保证一定量的投放量(页面或者时长)</p></li>
+<li><p>计费方式：CPM(Cost Per Mile)</p></li>
+</ul>
+</li>
+<li><p>竞价广告(Auction-based Advertising)</p>
+<ul>
+<li><p>广义一阶价格拍卖(GFP) - Overture(GoTo)</p></li>
+<li><p>广义二阶价格拍卖(GSP) - Google</p>
+<ul>
+<li><p>搜索广告(Search Ad)</p>
+<ul>
+<li><p>根据用户的搜索词进行定向，然后投放相关的广告</p></li>
+</ul>
+</li>
+<li><p>上下文广告(Contextual Ad)</p>
+<ul>
+<li><p>根据网页的上下文内容进行定向，这种定向方式是假定用户的兴趣点跟当前的网页内容是相关的</p></li>
+<li><p>产生了根据用户历史行为进行定向的技术(Behavior Targeting)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实时竞价(Real Time Bidding)</p>
+<ul>
+<li><p>改变了预先由广告主出价的模式，改为每次请求的时候，实时出价，改变自己的流量</p></li>
+<li><p>广告交易平台(Ad Exchange)</p>
+<ul>
+<li><p>交易平台，处于中间的角色，一方面接入了流量，另一方面接入了竞价的广告主</p></li>
+<li><p>需求方：需求方平台(Demand Side Platform, DSP)</p>
+<ul>
+<li><p>广告主，专门的技术公司</p></li>
+</ul>
+</li>
+<li><p>提供方：提供方平台(Supply Side Platform, SSP)</p>
+<ul>
+<li><p>(小型)网站</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="header-n74">
+<span id="id4"></span><h3>计费方式历史<a class="headerlink" href="#header-n74" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>CPM(Cost Per Mile)</p>
+<ul>
+<li><p>广告主要求：大面积、稳定的曝光</p></li>
+</ul>
+</li>
+<li><p>CPT(Cost Per Time)</p>
+<ul>
+<li><p>广告主要求增加曝光度</p></li>
+</ul>
+</li>
+<li><p>CPC(Cost per Click)</p>
+<ul>
+<li><p>按照点击付费方式；能够让一些中小网站媒体获得了可以变现的方式</p></li>
+<li><p>广告主只想把流量引入到自己的网站</p></li>
+</ul>
+</li>
+<li><p>CPS(Cost per Sale)</p>
+<ul>
+<li><p>只有在发生了销售的情况下，广告主才付费；有力于广告主，不用担心投资回报率的问题</p></li>
+<li><p>只想在成交的时候才付费</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="header-n102">
+<span id="id5"></span><h2>互联网广告类型<a class="headerlink" href="#header-n102" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>条幅广告(Banner Ad)</p></li>
+<li><p>邮件直接营销广告(Email Direct Marketing Ad, EDMA)</p></li>
+<li><p>富媒体广告(Rich Media Ad)</p></li>
+<li><p>视屏广告(Video Ad)</p></li>
+<li><p>文字链广告(Textual Ad)</p></li>
+<li><p>社交广告(Social Ad)</p></li>
+<li><p>移动端广告(Mobile Ad)</p></li>
+</ul>
+<div class="section" id="header-n120">
+<span id="id6"></span><h3>搜索广告<a class="headerlink" href="#header-n120" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="header-n121">
+<span id="id7"></span><h3>定向广告<a class="headerlink" href="#header-n121" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="header-n122">
+<span id="id8"></span><h3>实时广告竞价<a class="headerlink" href="#header-n122" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="header-n123">
+<span id="id9"></span><h3>广告系统架构<a class="headerlink" href="#header-n123" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="anti-fraud-model.html" class="btn btn-neutral float-right" title="反欺诈模型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="AB-test.html" class="btn btn-neutral float-left" title="A/B test" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, wangzf
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

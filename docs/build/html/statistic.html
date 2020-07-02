@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>统计学 &mdash; deeplearning 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="用户画像" href="user-portrait.html" />
+    <link rel="prev" title="习惯成为一个高效的人" href="seven-habits-of-efficient-people.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> deeplearning
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SPC.html">统计过程控制理论与实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6sigma.html">六西格玛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6sigma_resolution.html">六西格玛革命</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jingyisixiang.html">精益思想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moshishibie.html">模式识别在化学化工中的应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PLS.html">偏最小二乘回归</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AB-test.html">A/B test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ad.html">互联网广告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anti-fraud-model.html">反欺诈模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-list.html">Book List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business-knowledge.html">商业知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux_kernel.html">Linux 内核</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Logical_Thinking.html">逻辑思维</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PLS.html">偏最小二乘回归</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seven-habits-of-efficient-people.html">习惯成为一个高效的人</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">统计学</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#header-n6">统计学概念</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#header-n8">内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header-n37">大数定律、中心极限定理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n59">统计推断理论</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#header-n78">参数估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header-n80">假设检验</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#header-n84">假设检验的基本思想</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#header-n101">假设检验的基本步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n189">抽样分布</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user-portrait.html">用户画像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beautiful_math.html">美丽的数学</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">deeplearning</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>统计学</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/statistic.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="header-n2">
+<span id="id1"></span><h1>统计学<a class="headerlink" href="#header-n2" title="Permalink to this headline">¶</a></h1>
+<p>整理一下统计学中常用的概念、方法论。作为一个统计学出身的人，遇到这些问题时希望不要被难倒。</p>
+<div class="section" id="header-n6">
+<span id="id2"></span><h2>统计学概念<a class="headerlink" href="#header-n6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="header-n8">
+<span id="id3"></span><h3>内容<a class="headerlink" href="#header-n8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>大数定律、中心极限定理</p></li>
+<li><p>贝叶斯公式、贝叶斯定理</p></li>
+<li><p>参数估计</p>
+<ul>
+<li><p>点估计 区间估计</p></li>
+</ul>
+</li>
+<li><p>最大似然估计与EM算法</p></li>
+<li><p>假设检验</p>
+<ul>
+<li><p>A/B test</p></li>
+</ul>
+</li>
+<li><p>方差分析</p></li>
+<li><p>回归分析</p></li>
+<li><p>主成分分析</p></li>
+<li><p>因子分析</p></li>
+<li><p>聚类分析</p></li>
+</ul>
+</div>
+<div class="section" id="header-n37">
+<span id="id4"></span><h3>大数定律、中心极限定理<a class="headerlink" href="#header-n37" title="Permalink to this headline">¶</a></h3>
+<p>各种解释：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B">维基百科</a></p>
+<ul>
+<li><p>在统计学中，大数定律又称大数法则、大数率，是描述相当多次数重复实验的结果的定律；根据这个定律，样本数量越多，则其算术平均值就有越高的概率接近期望值；</p></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p><strong>定义1 大数定律</strong></p>
+</div></blockquote>
+<p>若<span class="math notranslate nohighlight">\(\xi_1, \xi_2,...,\xi_n,...\)</span>是随机变量序列，令
+<span class="math notranslate nohighlight">\(\eta_n = \frac{\xi_1+\xi_2+...+\xi_n}{n}\)</span>
+若存在常数序列<span class="math notranslate nohighlight">\(a_1,a_2,...,a_n,...\)</span>对任何的正数<span class="math notranslate nohighlight">\(\epsilon\)</span>,
+恒有 <span class="math notranslate nohighlight">\(\lim\limits_{n \to \infty}P(|\eta_n-a_n|&lt;\epsilon)=1\)</span>
+则称序列<span class="math notranslate nohighlight">\({\epsilon_n}\)</span>服从<strong>大数定律</strong>(或**大数法则**)。</p>
+<p><strong>切比雪夫(Chebyishev)不等式</strong></p>
+<p><strong>切比雪夫定理的特殊情况</strong></p>
+<p><strong>伯努利大数定理</strong></p>
+<p><strong>辛钦大数定理</strong></p>
+<blockquote>
+<div><p><strong>定义2 中心极限定理</strong></p>
+</div></blockquote>
+<p>对于独立随机变量序列<span class="math notranslate nohighlight">\(\xi_1, \xi_2,...,\xi_n,...\)</span>，假定<span class="math notranslate nohighlight">\(E(\xi_n)\)</span>和<span class="math notranslate nohighlight">\(D(\xi_n)\)</span>都存在，令
+<span class="math notranslate nohighlight">\(\zeta_n=\frac{\sum_{i=1}^{n}\xi_i-\sum_{i=1}^{n}E(\xi_i)}{\sqrt{\sum_{i=1}^{n}}}\)</span>
+若
+<span class="math notranslate nohighlight">\(\lim\limits_{n \to \infty}P(\zeta_n &lt; x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{\frac{-t^2}{2}}dt\)</span>
+则称序列<span class="math notranslate nohighlight">\({\xi_n}\)</span>服从<strong>中心极限定理(Central Limit Theorem)</strong></p>
+<p><strong>同分布的中心极限定理</strong></p>
+<p><strong>德莫佛－拉普拉斯定理</strong></p>
+</div>
+</div>
+<div class="section" id="header-n59">
+<span id="id5"></span><h2>统计推断理论<a class="headerlink" href="#header-n59" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>参数估计</p>
+<ul>
+<li><p>点估计</p></li>
+<li><p>区间估计</p></li>
+</ul>
+</li>
+<li><p>假设检验</p>
+<ul>
+<li><p>参数假设检验问题</p></li>
+<li><p>非参数假设检验问题</p></li>
+</ul>
+</li>
+<li><p>抽样分布</p></li>
+</ul>
+<div class="section" id="header-n78">
+<span id="id6"></span><h3>参数估计<a class="headerlink" href="#header-n78" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="header-n80">
+<span id="id7"></span><h3>假设检验<a class="headerlink" href="#header-n80" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>假设检验(hypothesis
+test)是由K.Pearson于20世纪初提出的，之后由费希尔进行了细化，并最终由Neyman和E.Pearson提出了较完整的假设检验理论。</p>
+</div></blockquote>
+<div class="section" id="header-n84">
+<span id="id8"></span><h4>假设检验的基本思想<a class="headerlink" href="#header-n84" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>假如实验结果与原假设H发生矛盾就拒绝原假设H，否则就接受原假设H</p>
+</div></blockquote>
+<p>假如对某个指标 <span class="math notranslate nohighlight">\(\theta\)</span> 进行检测，检测的临界值为
+<span class="math notranslate nohighlight">\(\theta_0\)</span>，即如果 <span class="math notranslate nohighlight">\(\theta \geq \theta_0\)</span> 则认为指标
+<span class="math notranslate nohighlight">\(\theta\)</span> 合格，如果 <span class="math notranslate nohighlight">\(\theta &lt; \theta_0\)</span>，则认为指标
+<span class="math notranslate nohighlight">\(\theta\)</span> 不合格；</p>
+<p>因此命题 “<span class="math notranslate nohighlight">\(\theta \geq \theta_0\)</span>” 将涉及如下两个参数集合：</p>
+<p><span class="math notranslate nohighlight">\(\Theta_0 = \{\theta:\theta \geq \theta_0\}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Theta_1 = \{\theta:\theta &lt; \theta_0\}\)</span></p>
+<ul class="simple">
+<li><p>在统计学中，这两个非空不相交的参数集合都称作<code class="docutils literal notranslate"><span class="pre">统计假设</span></code>，简称<code class="docutils literal notranslate"><span class="pre">假设</span></code>；</p></li>
+<li><p>通过样本对一个假设作出“对”或“不对”的具体判断规则就称为该假设的一个<code class="docutils literal notranslate"><span class="pre">检验</span></code>或<code class="docutils literal notranslate"><span class="pre">检验法则</span></code>；</p></li>
+<li><p>检验的结果若是否定该命题，则称<code class="docutils literal notranslate"><span class="pre">拒绝这个假设</span></code>，否则就称为<code class="docutils literal notranslate"><span class="pre">接受该假设</span></code>；</p></li>
+<li><p>若假设可用一个参数的集合表示，该假设检验问题称为<code class="docutils literal notranslate"><span class="pre">参数假设检验</span></code>，否则称为<code class="docutils literal notranslate"><span class="pre">非参数假设检验问题</span></code>，上面的问题就是一个参数假设检验问题，而对假设“总体为正太分布”作出检验的问题就是一个非参数假设检验问题；</p></li>
+</ul>
+</div>
+<div class="section" id="header-n101">
+<span id="id9"></span><h4>假设检验的基本步骤<a class="headerlink" href="#header-n101" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>建立假设</p>
+<ul class="simple">
+<li><p>原假设(零假设, null hypothesis)：<span class="math notranslate nohighlight">\(H_0:\theta\in \Theta_0\)</span></p></li>
+<li><p>对立假设(备择假设, alternative
+hypothesis)：<span class="math notranslate nohighlight">\(H_1:\theta\in \Theta_1\)</span></p></li>
+<li><p>简单原假设：<span class="math notranslate nohighlight">\(H_0:\theta = \theta_0\)</span></p>
+<ul>
+<li><p>双侧(双边)假设：<span class="math notranslate nohighlight">\(H_0:\theta = \theta_0\)</span> vs
+<span class="math notranslate nohighlight">\(H_0:\theta \neq \theta_0\)</span></p></li>
+<li><p>单侧(单边)假设：<span class="math notranslate nohighlight">\(H_0:\theta = \theta_0\)</span> vs
+<span class="math notranslate nohighlight">\(H_0:\theta &lt; \theta_0\)</span> 或者
+<span class="math notranslate nohighlight">\(H_0:\theta = \theta_0\)</span> vs <span class="math notranslate nohighlight">\(H_0:\theta &gt; \theta_0\)</span></p></li>
+</ul>
+</li>
+<li><p>复杂(复合)原假设：<span class="math notranslate nohighlight">\(H_0:\theta \geq \theta_0\)</span> 或者
+<span class="math notranslate nohighlight">\(H_0:\theta &lt; \theta_0\)</span></p></li>
+<li><p>在假设检验中，通常将不宜轻易加以否定的假设作为原假设；</p></li>
+</ul>
+</li>
+<li><p>选择检验统计量，给出拒绝域形式</p>
+<ul class="simple">
+<li><p>拒绝域：对于一个假设的检验就是指这样一个法则：当有了具体的样本后，按照该法则就可以决定是接受<span class="math notranslate nohighlight">\(H_0\)</span>还是拒绝<span class="math notranslate nohighlight">\(H_0\)</span>，即检验就等价于把样本空间划分为两个互不相交的部分<span class="math notranslate nohighlight">\(W\)</span>和<span class="math notranslate nohighlight">\(\bar{W}\)</span>，当样本属于<span class="math notranslate nohighlight">\(W\)</span>时，拒绝<span class="math notranslate nohighlight">\(H_0\)</span>；否则接受<span class="math notranslate nohighlight">\(H_0\)</span>，于是，称<span class="math notranslate nohighlight">\(W\)</span>为该检验的拒绝域，而称<span class="math notranslate nohighlight">\(\bar{W}\)</span>为接受域；</p></li>
+<li><p>检验统计量：由样本对原假设进行检验总是通过一个统计量完成的，该统计量称为检验统计量；</p></li>
+</ul>
+</li>
+<li><p>选择显著性水平</p>
+<ul>
+<li><p>由于样本是随机的，当应用某种检验做判断时，可能做出正确的判断，也可能做出错误的判断；</p></li>
+<li><p>两种错误：</p>
+<ul class="simple">
+<li><p>当<span class="math notranslate nohighlight">\(\theta \in \Theta_0\)</span>时，样本由于随机性却落入了拒绝域<span class="math notranslate nohighlight">\(W\)</span>，于是采取了拒绝原假设<span class="math notranslate nohighlight">\(H_0\)</span>的错误决策，称这样的错误为第一类错误(type
+I error)；</p></li>
+<li><p>当<span class="math notranslate nohighlight">\(\theta \in \Theta_1\)</span>时，样本由于随机性却落入了接受域<span class="math notranslate nohighlight">\(\bar{W}\)</span>，于是采取了接受原假设<span class="math notranslate nohighlight">\(H_0\)</span>的错误决策，称这样的错误为第一类错误(type
+II error)；</p></li>
+</ul>
+</li>
+<li><p>犯两种错误的概率：由于检验结果受样本的影响，具有随机性，于是，可用总体分布定义犯第一类，第二类错误的概率如下</p>
+<ul class="simple">
+<li><p>犯第一类错误概率：<span class="math notranslate nohighlight">\(\alpha=P_{\theta}(X \in W), \theta \in \Theta_0\)</span>；</p></li>
+<li><p>犯第二类错误概率：<span class="math notranslate nohighlight">\(\beta=1-\alpha=P_{\theta}(X \in \bar{W}), \theta \in \Theta_1\)</span>；</p></li>
+</ul>
+</li>
+<li><p>势函数，功效函数(power
+function)：每一个检验都无法避免犯错误的可能，但无法找到一个检验，使其犯两种错误的概率都尽可能地小
+<span class="math notranslate nohighlight">\(g(\theta) = P_{\theta}(X \in W), \theta \in \Theta_0 \cup \Theta_1\)</span>
+显然，势函数<span class="math notranslate nohighlight">\(g(\theta)\)</span>是定义在参数空间<span class="math notranslate nohighlight">\(\Theta\)</span>上的一个函数，当<span class="math notranslate nohighlight">\(\theta\in\Theta_0\)</span>时，<span class="math notranslate nohighlight">\(g(\theta)=\alpha=\alpha(\theta)\)</span>，当<span class="math notranslate nohighlight">\(\theta\in\Theta_1\)</span>时，<span class="math notranslate nohighlight">\(g(\theta)=1-\beta=1-\beta(\theta)\)</span>，犯两类错误的概率都是参数<span class="math notranslate nohighlight">\(\theta\)</span>的函数：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}g(\theta)=\left\{
+\begin{array}{l}
+\alpha(\theta)    &amp; &amp; {\theta\in\Theta_0}\\
+1-\beta(\theta)   &amp; &amp; {\theta\in\Theta_1}\\
+\end{array} \right.\end{split}\]</div>
+<p>即</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{
+\begin{array}{l}
+\alpha(\theta)=g(\theta)    &amp; &amp; {\theta\in\Theta_0}\\
+\beta(\theta)= 1-g(\theta)  &amp; &amp; {\theta\in\Theta_1}\\
+\end{array} \right.\end{split}\]</div>
+<p>上面的函数说明，在样本量给定的条件下，<span class="math notranslate nohighlight">\(\alpha\)</span>与<span class="math notranslate nohighlight">\(\beta\)</span>中一个减小必导致另一个增大，既然不能同时控制一个检验的犯第一类、第二类错误的概率，只能采取折中方案，通常的做法是仅限制犯第一类错误的概率，也就是费希尔的显著性检验；</p>
+</li>
+<li><p>显著性水平</p>
+<ul class="simple">
+<li><p>对检验问题<span class="math notranslate nohighlight">\(H_0:\theta\in\Theta_0\)</span> vs
+<span class="math notranslate nohighlight">\(H_1:\theta\in\Theta_1\)</span>，如果一个检验满足对任意的<span class="math notranslate nohighlight">\(\theta\in\Theta_0\)</span>都有：
+<span class="math notranslate nohighlight">\(g(\theta)\leq\alpha\)</span>
+则称该检验是显著性水平为<span class="math notranslate nohighlight">\(\alpha\)</span>的显著性检验，简称水平为<span class="math notranslate nohighlight">\(\alpha\)</span>的检验。</p></li>
+<li><p>提出显著性检验的概念就是要控制犯第一类错误的概率<span class="math notranslate nohighlight">\(\alpha\)</span>，但也不能使得<span class="math notranslate nohighlight">\(\alpha\)</span>过小(<span class="math notranslate nohighlight">\(\alpha\)</span>过小会导致<span class="math notranslate nohighlight">\(\beta\)</span>过大)，在适当控制<span class="math notranslate nohighlight">\(\alpha\)</span>中制约<span class="math notranslate nohighlight">\(\alpha\)</span>，最常用的选择是<span class="math notranslate nohighlight">\(\alpha=0.05\)</span>，<span class="math notranslate nohighlight">\(\alpha=0.10\)</span>，<span class="math notranslate nohighlight">\(\alpha=0.01\)</span></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>给出拒绝域</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(g(\theta_0)=\alpha\)</span></p></li>
+<li><p>显著性水平越小，拒绝域越小；</p></li>
+</ul>
+</li>
+<li><p>做出判断</p>
+<ul class="simple">
+<li><p>在有了明确的拒绝域<span class="math notranslate nohighlight">\(W\)</span>后，根据样本观测值就可以做出判断；</p></li>
+<li><p>由样本观测值计算检验统计量，由样本统计量是否属于拒绝域做出判断；</p></li>
+<li><p>可能会出现这样的情况：在一个较大的显著性水平下得到了拒绝原假设的结论，而在一个较小的显著性水平下却得到了接受原假设的结论；</p></li>
+<li><p>检验的<span class="math notranslate nohighlight">\(p\)</span>值(<span class="math notranslate nohighlight">\(p-value\)</span>)</p>
+<ul>
+<li><p>在一个假设检验问题中，利用样本观测值能够做出拒绝原假设的最小显著性水平称为检验的p值，这样由检验的p值与人们心中的显著性水平<span class="math notranslate nohighlight">\(\alpha\)</span>进行比较就可以很容易做出检验的结论：</p>
+<ul>
+<li><p>如果
+<span class="math notranslate nohighlight">\(\alpha\geq p\)</span>，则在显著性水平<span class="math notranslate nohighlight">\(\alpha\)</span>下拒绝原假设；</p></li>
+<li><p>如果
+<span class="math notranslate nohighlight">\(\alpha&lt; p\)</span>，则在显著性水平<span class="math notranslate nohighlight">\(\alpha\)</span>下接受原假设；</p></li>
+</ul>
+</li>
+<li><p>假设检验可以从两个方面进行：其一是建立拒绝域，考察样本观测值是否落在拒绝域中，其二是根据样本观测值计算检验的p值，通过将p值与事先设定的显著性水平进行比较</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="header-n189">
+<span id="id10"></span><h2>抽样分布<a class="headerlink" href="#header-n189" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user-portrait.html" class="btn btn-neutral float-right" title="用户画像" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="seven-habits-of-efficient-people.html" class="btn btn-neutral float-left" title="习惯成为一个高效的人" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, wangzf
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
