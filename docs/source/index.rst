@@ -28,3 +28,4 @@ Welcome to reading's documentation!
    statistic
    user-portrait
    beautiful_math
+   statistic-man
