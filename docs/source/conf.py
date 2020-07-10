@@ -20,15 +20,15 @@ if not 'READTHEDOCS' in os.environ:
     sys.path.insert(0, os.path.abspath('..'))
 
 sys.path.insert(0, os.path.abspath('../..src/'))
-sys.path.append(os.path.abspath('.Keras/'))
-sys.path.append(os.path.abspath('.Keras-models/'))
-sys.path.append(os.path.abspath('.Tensorflow/'))
-sys.path.append(os.path.abspath('.Tensorflow-models/'))
-sys.path.append(os.path.abspath('.TF-keras/'))
-sys.path.append(os.path.abspath('.deeplearning/'))
-sys.path.append(os.path.abspath('.Pytorch/'))
-sys.path.append(os.path.abspath('.Numpy/'))
-sys.path.append(os.path.abspath('.MXNet/'))
+# sys.path.append(os.path.abspath('.Keras/'))
+# sys.path.append(os.path.abspath('.Keras-models/'))
+# sys.path.append(os.path.abspath('.Tensorflow/'))
+# sys.path.append(os.path.abspath('.Tensorflow-models/'))
+# sys.path.append(os.path.abspath('.TF-keras/'))
+# sys.path.append(os.path.abspath('.deeplearning/'))
+# sys.path.append(os.path.abspath('.Pytorch/'))
+# sys.path.append(os.path.abspath('.Numpy/'))
+# sys.path.append(os.path.abspath('.MXNet/'))
 
 
 # -- Project information -----------------------------------------------------
