@@ -1,0 +1,589 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>贝叶斯思维 &mdash; reading 1.0.0 alpha documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="误差理论与数据处理" href="error.html" />
+    <link rel="prev" title="贝叶斯方法" href="bayes-bayesmethod.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> reading
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="book-list.html">Book List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">统计学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathematics.html">数学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="information-theory.html">信息论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bayes-bayesmethod.html">贝叶斯方法</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">贝叶斯思维</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.贝叶斯概率</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.1 条件概率、贝叶斯公式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">条件概率</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">乘法公式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">全概率公式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">贝叶斯公式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">1.2 贝叶斯估计</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">1.2.1 统计推断的基础</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">1.2.2 贝叶斯公式的密度函数形式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">1.2.3 贝叶斯估计</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">1.2.4 共轭先验分布</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bayes">1.5 统计决策理论与 Bayes 分析</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">1.5.1 统计决策问题和损失函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">1.5.2 决策函数和风险函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bayes-bayes">1.5.3 Bayes 决策准则和 Bayes 分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">2.贝叶斯思维</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">2.1 贝叶斯定理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">2.2 统计计算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">2.3 估计</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">误差理论与数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPC.html">统计过程控制理论与实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6sigma.html">六西格玛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6sigma_resolution.html">六西格玛革命</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jingyisixiang.html">精益思想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business-knowledge.html">商业知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Logical_Thinking.html">逻辑思维, 只要五步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seven-habits-of-efficient-people.html">习惯成为一个高效的人</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistic-men.html">读《漫谈现代统计“四大天王”》</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protocol.html">互联网协议(Internet Protocol Suite)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">reading</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>贝叶斯思维</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/bayes-thinkbayes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>贝叶斯思维<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>内容提要：</p>
+<ul>
+<li><p>贝叶斯方法是一种常见的利用概率学知识取解决不确定性问题的数学方法</p></li>
+<li><p>本书的主要内容涉及：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>建模决策的方法论</p></li>
+<li><p>建模误差和数值误差怎么取舍</p></li>
+<li><p>怎样为具体问题建立数学模型</p></li>
+<li><p>如何抓住问题中的主要矛盾(模型中的关键参数)</p></li>
+<li><p>优化或验证模型的有效性或者局限性</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>推荐者序</p>
+<ul class="simple">
+<li><p>事情的发生“既有必然性，又有偶然性”</p></li>
+<li><p>很多时候，我们不能给出每个人、每一件事的确定结果。但是，当我们观察大量的相同事件后，我们就会发现从一个集体的意义上的规律是存在的。
+而单个事件每次可能得到不同的结果，这些结果一最有可能的结果为中心，服从一定的概率分布。了解这些分布数据，使我们更加容易理解和预期真实世界的多边形。</p></li>
+</ul>
+<div class="section" id="id2">
+<h2>1.贝叶斯概率<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>本节摘录于《概率论与数理统计教程-第二版(茆诗松 程依明 濮晓龙)》、《高等数理统计-(茆诗松 程依明 濮晓龙)》</p>
+<blockquote>
+<div><p>在统计学中有两个大的学派：<strong>频率学派</strong> (也称经典学派) 和 <strong>贝叶斯学派</strong></p>
+</div></blockquote>
+<div class="section" id="id3">
+<h3>1.1 条件概率、贝叶斯公式<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>条件概率的三个公式中：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>乘法公式</strong> 是求事件交的概率</p></li>
+<li><p><strong>全概率公式</strong> 是求一个复杂事件的概率</p></li>
+<li><p><strong>贝叶斯公式</strong> 是求一个条件概率</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="id4">
+<h4>条件概率<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>所谓条件概率，它是指在某事件 <span class="math notranslate nohighlight">\(B\)</span>  发生的条件下，求另一件事 <span class="math notranslate nohighlight">\(A\)</span>  的概率，
+记为 <span class="math notranslate nohighlight">\(P(A|B)\)</span>，它与 <span class="math notranslate nohighlight">\(P(A)\)</span> 是不同的两类概率。 条件概率是两个无条件概率之商，
+这就是条件概率的定义.</p>
+</div>
+<ul>
+<li><dl>
+<dt><strong>定义</strong>：设 <span class="math notranslate nohighlight">\(A\)</span> 与 <span class="math notranslate nohighlight">\(B\)</span> 是样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> 中的两个事件，若 <span class="math notranslate nohighlight">\(P(B) &gt; 0\)</span>，</dt><dd><p>则称下面的公式为“在 <span class="math notranslate nohighlight">\(B\)</span> 发生下 <span class="math notranslate nohighlight">\(A\)</span> 的条件概率”，简称**条件概率**。</p>
+<p><span class="math notranslate nohighlight">\(P(A|B) = \frac{P(AB)}{P(B)}\)</span></p>
+<ul>
+<li><p><strong>性质</strong>：条件概率是概率，即若设 <span class="math notranslate nohighlight">\(P(B) &gt; 0\)</span>，则</p>
+<blockquote>
+<div><ul>
+<li><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(P(A|B) \geq 0, A \in \mathcal{F}\)</span></p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p><span class="math notranslate nohighlight">\(P(\Omega|B) = 1\)</span>.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>若 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> 中的 <span class="math notranslate nohighlight">\(A_1, A_2, \cdots, A_n, \cdots\)</span> 互不相容，则：</p></li>
+</ol>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(P(\bigcup_{n=1}^{\infty}A_{n}|B) = \sum_{n = 1}^{\infty}P(A_{n}|B)\)</span></p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h4>乘法公式<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul>
+<li><p><strong>性质</strong>：</p>
+<blockquote>
+<div><ul>
+<li><ol class="arabic simple">
+<li><p>若 <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>，则</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(AB)=P(B)P(A|B)=P(A)P(B|A)\)</span></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>若 <span class="math notranslate nohighlight">\(P(A_1, A_2, \cdots, A_{n-1})&gt;0\)</span>，则</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(A_1, A_2, \cdots, A_{n})=P(A_{1})P(A_{2}|A_{1})P(A_{3}|A_{1}A_{2}) \cdots P(A_{n}|A_{1} \cdots A_{n-1})\)</span></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h4>全概率公式<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul>
+<li><p><strong>性质</strong>：设 <span class="math notranslate nohighlight">\(B_{1}, B_{2}, \cdots, B_{n}\)</span> 为样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> 的一个分割，即 <span class="math notranslate nohighlight">\(B_{1}, B_{2}, \cdots, B_{n}\)</span> 互不相容，
+且 <span class="math notranslate nohighlight">\(\bigcup_{i=1}^{n}B_{i} = \Omega\)</span>，如果 <span class="math notranslate nohighlight">\(P(B_{i})&gt;0,i=1,2,\cdots,n\)</span>，则对任一事件 <span class="math notranslate nohighlight">\(A\)</span> 有</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(P(A)=\sum_{n = 1}^{\infty}P(B_{i})P(A|B_{i})\)</span></p>
+</div></blockquote>
+</li>
+<li><p>全概率公式的最简单形式：</p>
+<blockquote>
+<div><ul>
+<li><p>假如 <span class="math notranslate nohighlight">\(0&lt;P(B)&lt;1\)</span>，则</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(A) = P(B)P(A|B) + P(\bar{B})P(A|\bar{B})\)</span></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>条件 <span class="math notranslate nohighlight">\(B_{1}, B_{2}, \cdots, B_{n}\)</span> 为样本空间的一个分割，可改成 <span class="math notranslate nohighlight">\(B_{1}, B_{2}, \cdots, B_{n}\)</span> 互不相容，
+且 <span class="math notranslate nohighlight">\(A \subset \bigcup_{i=1}^{n}B_{i}\)</span>，性质中的定理仍然成立。</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h4>贝叶斯公式<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul>
+<li><p><strong>性质</strong>：设 <span class="math notranslate nohighlight">\(B_{1}, B_{2}, \cdots, B_{n}\)</span> 为样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> 的一个分割，即 <span class="math notranslate nohighlight">\(B_{1}, B_{2}, \cdots, B_{n}\)</span> 互不相容，
+且 <span class="math notranslate nohighlight">\(\bigcup_{i=1}^{n}B_{i} = \Omega\)</span>，如果 <span class="math notranslate nohighlight">\(P(A) &gt; 0, P(B_{i})&gt;0,i=1,2,\cdots,n\)</span>，则</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(P(B_{i}|A)=\frac{P(B_{i})P(A|B_{i})}{\sum_{j=1}^{n}P(B_{j})P(A|B_{j})}, i=1,2,\cdots,n.\)</span></p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li><p>在贝叶斯公式中，如果称 <span class="math notranslate nohighlight">\(P(B_{i})\)</span> 为 <span class="math notranslate nohighlight">\(B_{i}\)</span> 的 <strong>先验概率</strong>，称 <span class="math notranslate nohighlight">\(P(B_{i}|A)&gt;0\)</span> 为 <span class="math notranslate nohighlight">\(B_{i}\)</span> 的 <strong>后验概率</strong>，
+则贝叶斯公式是专门用于计算后验概率的，也就是通过 <span class="math notranslate nohighlight">\(A\)</span> 的发生这个新信息，来对 <span class="math notranslate nohighlight">\(B_{i}\)</span> 的概率作出修正.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(B_{i}|A)=P(B_{i}) \cdot \frac{P(A|B_{i})}{\sum_{j=1}^{n}P(B_{j})P(A|B_{j})}, i=1,2,\cdots,n.\)</span></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>1.2 贝叶斯估计<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h4>1.2.1 统计推断的基础<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul>
+<li><p>经典统计学派对统计推断的规定如下：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>统计推断是根据样本信息对总体分布或总体的特征数进行推断，这里的统计推断使用到了两种信息：<strong>总体信息</strong> 和 <strong>样本信息</strong>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>贝叶斯学派则认为：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>统计推断除了总体信息、样本信息以外，还应该使用第三种信息：<strong>先验信息</strong>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="section" id="id10">
+<h5>总体信息：<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h5>
+<blockquote>
+<div><ul class="simple">
+<li><p>总体信息即总体分布或总体所属分布族提供的信息.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id11">
+<h5>样本信息：<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h5>
+<blockquote>
+<div><ul class="simple">
+<li><p>样本信息即抽取样本所得观测值提供的信息.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id12">
+<h5>先验信息：<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h5>
+<blockquote>
+<div><ul class="simple">
+<li><p>如果把抽取样本看作做一次试验，则样本信息就是试验中得到的信息.
+实际上，人们在试验之前要对要做的的问题在经验上和资料上总是有所了解的，
+这些信息对统计推断是有益的</p></li>
+<li><p>先验信息即是抽样(试验)之前有关统计问题的一些信息</p></li>
+<li><p>一般来说，先验信息来源于经验和历史资料</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id13">
+<h5>贝叶斯统计学：<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h5>
+<p>基于上述三种信息进行统计推断的统计学称为 <strong>贝叶斯统计学</strong>. 它与经典统计学的差别就在于是否利用先验信息。</p>
+<p>贝叶斯统计在重视使用总体信息和样本信息的同时，还注意先验信息的收集、挖掘和加工，使它数量化，形成先验分布，参加到
+统计推断中来，以提高统计推断的质量。</p>
+<p>忽视先验信息的利用，有时是一种浪费，有时还会导出不合理的结论。</p>
+<p>贝叶斯学派的基本观点是：任一未知量 <span class="math notranslate nohighlight">\(\theta\)</span> 都可看作随机变量，可用一个概率分布区描述，这个分布称为先验分布；</p>
+<p>在</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h4>1.2.2 贝叶斯公式的密度函数形式<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id15">
+<h4>1.2.3 贝叶斯估计<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>由后验分布 <span class="math notranslate nohighlight">\(\pi(\theta|X)\)</span> 估计 <span class="math notranslate nohighlight">\(\theta\)</span> 有三种常用的方法：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>使用后验分布的密度函数最大值点作为 <span class="math notranslate nohighlight">\(\theta\)</span> 的点估计的最大后验估计.</p></li>
+<li><p>使用后验分布的中位数作为 <span class="math notranslate nohighlight">\(\theta\)</span> 的点估计的后验中位数估计.</p></li>
+<li><p>使用后验分布的均值作为 <span class="math notranslate nohighlight">\(\theta\)</span> 的点估计的后验期望估计. 用的最多的是后延期望估计，它一般称为贝叶斯估计，记为 <span class="math notranslate nohighlight">\(\hat{\theta}_{B}\)</span>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id16">
+<h4>1.2.4 共轭先验分布<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<p>从贝叶斯公式可以看出，整个贝叶斯统计推断只要先验分布确定后就没有理论上的困难. 关于先验分布的确定有多种途径，最常用的先验分布类为 <strong>共轭鲜艳分布</strong>。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>定义</strong>：设 <span class="math notranslate nohighlight">\(\theta\)</span> 是总体分布 <span class="math notranslate nohighlight">\(p(x;\theta)\)</span> 中的参数， <span class="math notranslate nohighlight">\(\pi(\theta)\)</span> 是其先验分布，若
+对任意来自 <span class="math notranslate nohighlight">\(p(x;\theta)\)</span> 的样本观测值得到的后验分布 <span class="math notranslate nohighlight">\(\pi(\theta|x)\)</span> 与 <span class="math notranslate nohighlight">\(\pi(\theta)\)</span> 属于同一个分布族，
+则称该分布是 <span class="math notranslate nohighlight">\(\theta\)</span> 的共轭鲜艳分布(族).</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="bayes">
+<h3>1.5 统计决策理论与 Bayes 分析<a class="headerlink" href="#bayes" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>经典统计学</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>(待补充)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>统计决策理论</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>统计决策理论</strong> 是著名统计学家 A.Wald(1902-1950) 在 20 世纪 40 年代建立起来的，
+它与经典统计学的差别在于是否涉及后果。经典统计学着重在推断上
+而不考虑在何处和效益如何。而统计决策理论引入*损失函数*，用来度量效益大小，
+评价统计推断结果的优劣。</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Bayes 分析、非决策的 Bayes 分析、Bayes 决策分析</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Bayes 分析</strong> 是英国学者 T.Bayes(1702-1761) 首先提出，在 20 世纪后半叶发展迅速。
+它与经典统计学的差别在于 <strong>是否使用先验信息(经验与历史资料)</strong>。经典统计学只用样本信息，而
+Bayes 分析把先验信息与样本信息结合起来用于推断之中，形成 <strong>非决策的 Bayes 分析</strong>。
+若再使用后果信息，就形成 <strong>Bayes 决策分析</strong>。</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="id17">
+<h4>1.5.1 统计决策问题和损失函数<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id18">
+<h4>1.5.2 决策函数和风险函数<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="bayes-bayes">
+<h4>1.5.3 Bayes 决策准则和 Bayes 分析<a class="headerlink" href="#bayes-bayes" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="id19">
+<h2>2.贝叶斯思维<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<p>使用 Python 代码实现的 Bayes 方法不是数学，离散近似而不是连续数学，
+结果就是原本需要积分的地方变成了求和，概率分布的大多数操作变成了简单的循环。</p>
+<p>书信息：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://greenteapress.com/wp/think-bayes/">https://greenteapress.com/wp/think-bayes/</a></p></li>
+<li><p><a class="reference external" href="https://github.com/wangzhefeng/ThinkBayes2">https://github.com/wangzhefeng/ThinkBayes2</a></p></li>
+<li><p><a class="reference external" href="https://github.com/rlabbe/ThinkBayes">https://github.com/rlabbe/ThinkBayes</a></p></li>
+</ul>
+</div></blockquote>
+<p>环境配置：</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:wangzhefeng/ThinkBayes2.git
+$ <span class="nb">cd</span> ThinkBayes2
+$ pip install .
+$ python -m pip install numpy scipy matplotlib jupyter pandas jupyterlab
+$ python install_test.py
+</pre></div>
+</div>
+</div></blockquote>
+<div class="section" id="id20">
+<h3>2.1 贝叶斯定理<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id21">
+<h3>2.2 统计计算<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id22">
+<h3>2.3 估计<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="error.html" class="btn btn-neutral float-right" title="误差理论与数据处理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bayes-bayesmethod.html" class="btn btn-neutral float-left" title="贝叶斯方法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, wangzf
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

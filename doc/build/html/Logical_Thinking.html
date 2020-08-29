@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>逻辑思维, 只要五步 &mdash; reading 1.0.0 alpha documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="习惯成为一个高效的人" href="seven-habits-of-efficient-people.html" />
+    <link rel="prev" title="数据结构" href="data-structure.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> reading
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="book-list.html">Book List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">统计学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathematics.html">数学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="information-theory.html">信息论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bayes-bayesmethod.html">贝叶斯方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bayes-thinkbayes.html">贝叶斯思维</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">误差理论与数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPC.html">统计过程控制理论与实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6sigma.html">六西格玛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6sigma_resolution.html">六西格玛革命</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jingyisixiang.html">精益思想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business-knowledge.html">商业知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">数据结构</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">逻辑思维, 只要五步</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">理清思路，表达自己的技巧</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1">Step 1 金字塔图——组织语言, 快速表达</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">论点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">结论</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2">Step 2 “并列型” 还是 “串联型”——把理由连接起来</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">结论和理由连接的两种方式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-mece">Step 3 MECE 分析法——消除遗漏、避免重复</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">思考问题的解决方案</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-4">Step 4 树状图——分解挖掘</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5">Step 5 矩阵图——进行评价, 得出结论</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="seven-habits-of-efficient-people.html">习惯成为一个高效的人</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistic-men.html">读《漫谈现代统计“四大天王”》</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protocol.html">互联网协议(Internet Protocol Suite)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">reading</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>逻辑思维, 只要五步</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Logical_Thinking.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>逻辑思维, 只要五步<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>干事没逻辑，再累也是白忙活！</p>
+<dl>
+<dt>作者</dt><dd><p>下地宽也[🇯🇵]</p>
+</dd>
+<dt>出版社</dt><dd><p>北京联合出版社</p>
+</dd>
+<dt>购买日期</dt><dd><p>2020-06-01</p>
+</dd>
+<dt>主要内容</dt><dd><ul>
+<li><p>理清思路, 表达自己的技巧</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Step 1 金字塔图——组织语言, 快速表达</p></li>
+<li><p>Step 2 “并列型” 还是 “串联型”——把理由连接起来</p></li>
+<li><p>Step 3 MECE 分析法——消除遗漏、避免重复</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>思考问题的解决方案</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Step 4 树状图——分解挖掘</p></li>
+<li><p>Step 5 矩阵图——进行评价, 得出结论</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="id2">
+<h2>理清思路，表达自己的技巧<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/base.png" src="_images/base.png" />
+<ol class="arabic">
+<li><p>逻辑性语言所需要的 3 个重点</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>有结论</p></li>
+<li><p>有理由</p></li>
+<li><p>结论和理由相联系</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>有结论——并非所有的场合都需要有逻辑，逻辑性语言必须有**结论**</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>需要逻辑性语言的场合: 报告、联络、指示、建议、说明、提案、交涉、会议中的发言、事故应对</p></li>
+<li><p>并不一定需要逻辑性语言的场合: 商量烦恼之事、提出想法(发散性思维反而能提出好想法)、信息交换</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>用 “因为”、“所以” 等连接词，让理由和结论更明确</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Why so ?(为什么这么说)</p></li>
+<li><p>So what?(因此要做什么)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<div class="section" id="step-1">
+<h3>Step 1 金字塔图——组织语言, 快速表达<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>论点 ==&gt; 结论 ==&gt; 理由 ==&gt; 行动</p>
+</div></blockquote>
+<img alt="_images/jinzita.png" src="_images/jinzita.png" />
+<ol class="arabic simple">
+<li><p>写 3 个(2-4个)支撑**结论**的理由, 构成“金字塔”的形状，让结论很牢靠.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">论点</span> <span class="pre">==&gt;</span> <span class="pre">结论</span> <span class="pre">==&gt;</span> <span class="pre">理由</span> <span class="pre">==&gt;</span> <span class="pre">行动</span></code> 的表达，让沟通清晰有条理，更容易被理解.</p></li>
+</ol>
+<div class="section" id="id3">
+<h4>论点<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>如何开始你的谈话——找到论点.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>所谓论点就是接下来谈话的内容是什么，谈话的中心就成为问题点(问题或疑问). 换个说法，论点是尚未得出的结论的事情，也就是未决事项.</p></li>
+<li><p>论点由 “情况 + 问题点”构成.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>从对方了解的情况开始阐述，沟通更容易</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>为了明确论点，在说问题点之前，先说情况(或背景)。先阐述听的人能够理解的“情况”、“背景”，这样便于听的人顺利进入话题.</p></li>
+<li><p>为了让听的人站在和自己共通的前提条件下，就需要注意从对方能够理解的情况开始阐述.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>考虑的问题应该是有意义的问题</p>
+<blockquote>
+<div><ul>
+<li><p>与工作相关的论点(问题点)的类型有 3 种:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>原本什么是问题? (提出问题: what)</p></li>
+<li><p>为什么会产生这个问题？(查明原因: why)</p></li>
+<li><p>有什么样的解决方案？(检讨解决方案: how)</p></li>
+<li><p>who</p></li>
+<li><p>where</p></li>
+<li><p>when</p></li>
+<li><p>how much</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>论点应该是“有思考意义的内容”。有意义的论点就应该是“能联系到行为的问题”。没有意义的论点是“没有意义的问题”.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h4>结论<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>把你最想说的作为结论</p>
+<blockquote>
+<div><ul>
+<li><p>结论和论点的关系</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>让论点的回答成为结论</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>结论和理由的关系:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>把许多想说的内容作为理由积累起来，把其中最想说的作为结论。</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>结论和论点的 3 种组合方式</p>
+<blockquote>
+<div><ul>
+<li><p>模式 1：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>论点：提出问题: what</p></li>
+<li><p>结论：问题是xxx</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>模式 2：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>论点：查明原因: why</p></li>
+<li><p>结论：原因是是xxx</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>模式 3:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>论点：检讨解决方案: how</p></li>
+<li><p>结论：解决方案是是xxx</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>yes/no 模式：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>论点：is xxx?</p></li>
+<li><p>结论：yes/no</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="step-2">
+<h3>Step 2 “并列型” 还是 “串联型”——把理由连接起来<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>逻辑性的结论和理由的连接方法只有两种:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>并列型(归纳法)</p></li>
+<li><p>串联型(演绎法)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h4>结论和理由连接的两种方式<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>并列型(归纳法的列举理由)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>并列几个不同的事实，从这些事实中找出共通点，从而得出结论的方法</p></li>
+<li><p>特点: 结论终究是个推测出来的内容，如果要正确地表达，结论的说法应该是“似乎是”</p></li>
+<li><p>优点: 同时列举了多个理由，即使有一个理由不充分(即使根据变弱)也能凭借剩下的理由来支撑结论</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>串联型(演绎法的列举理由)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>将某个事实和与其对应的某个规律(决定、一般常识、法规等)进行组合，从而得出结论的方法</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="step-3-mece">
+<h3>Step 3 MECE 分析法——消除遗漏、避免重复<a class="headerlink" href="#step-3-mece" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>MECE 分析法让理由无遗漏、无重复:</p></li>
+</ol>
+<p>为了防止遗漏问题就需要掌握“MECE分析法”，就是在没有遗漏、没有重复的的状态下进行思考。</p>
+<p>先让完整度达到八至九成无遗漏、无重复程序后，如果还觉得不全面，可以设立一个“其他”项目。我们的目的不是要做到完全无遗漏、无重复，重要的是要有一个充分思考后推进事物发展的态度。</p>
+<p>过去一旦用了某个切入口开始对思绪进行整理后，就会完全忘记考虑别的切入口。如果能够经常有意识地思考有没有其他的切入口，也许就能够找到更好的 MECE 状态.</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>思考问题的解决方案<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-4">
+<h3>Step 4 树状图——分解挖掘<a class="headerlink" href="#step-4" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>明确问题 ==&gt; 查明原因 ==&gt; 检讨解决方案 ==&gt; 思考方法</p>
+</div></blockquote>
+</div>
+<div class="section" id="step-5">
+<h3>Step 5 矩阵图——进行评价, 得出结论<a class="headerlink" href="#step-5" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="seven-habits-of-efficient-people.html" class="btn btn-neutral float-right" title="习惯成为一个高效的人" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="data-structure.html" class="btn btn-neutral float-left" title="数据结构" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, wangzf
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
