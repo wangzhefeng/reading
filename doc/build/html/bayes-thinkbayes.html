@@ -120,9 +120,21 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id19">2.贝叶斯思维</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id20">2.1 贝叶斯定理</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id21">2.2 统计计算</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id22">2.3 估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">2.1 建模和近似</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">2.2 代码利用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">2.3 贝叶斯定理</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id23">基本概念</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">贝叶斯定理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">2.4 统计计算</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id26">2.4.1 分布</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">2.4.2 曲奇饼问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#monty-hall">2.4.3 Monty Hall 难题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#m-m">2.4.4 M&amp;M 豆问题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">2.5 估计</a></li>
 </ul>
 </li>
 </ul>
@@ -500,6 +512,25 @@ Bayes 分析把先验信息与样本信息结合起来用于推断之中，形�
 <h2>2.贝叶斯思维<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
 <p>使用 Python 代码实现的 Bayes 方法不是数学，离散近似而不是连续数学，
 结果就是原本需要积分的地方变成了求和，概率分布的大多数操作变成了简单的循环。</p>
+<div class="section" id="id20">
+<h3>2.1 建模和近似<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p>在应用任何分析方法前，必须决定真实世界中的哪些部分可以被包括进模型，而哪些细节可以被抽象掉。</p>
+<p>在解决问题的过程中，明确建模过程作为其中一部分是重要的，因为这会提醒我们考虑建模误差(也就是建模当中简化和假设带来的误差)。</p>
+<p>本书中很多方法都基于离散分布，这让一些人担心数值误差，但对于真实世界的问题，数值误差几乎从来都小于建模误差。
+再者，离散方法总能允许较好的建模选择，我宁愿要一个近似的良好的模型也不要一个精确但却糟糕的模型。</p>
+<p>从另一个角度看，连续方法常在性能上有优势，比如能以常数时间复杂度的解法替换掉线性或者平方时间复杂度的解法。</p>
+<p>总的来说，推荐这些步骤的一个通用流程如下：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1.当研究问题时，以一个简化模型开始，并以清晰、好理解、实证无误的代码实现它。注意力集中在好的建模决策而不是优化上</p></li>
+<li><p>2.一旦简化模型有效，再找到最大错误来源。这可能需要增加离散近似过程当中值的数量，或者增加蒙特卡洛方法中的迭代数，或者增加模型细节。</p></li>
+<li><p>3.如果对你的应用而言性能就已经足够了，则没必要优化。但如果要做，有两个方向可以考虑：评估你的代码以寻找优化空间，例如，如果你缓存了
+前面的计算结果，你也许能避免重复冗余的计算；或者可以去发现找到计算捷径的分析方法。</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id21">
+<h3>2.2 代码利用<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <p>书信息：</p>
 <blockquote>
 <div><ul class="simple">
@@ -518,14 +549,278 @@ $ python install_test.py
 </pre></div>
 </div>
 </div></blockquote>
-<div class="section" id="id20">
-<h3>2.1 贝叶斯定理<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="id21">
-<h3>2.2 统计计算<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="id22">
-<h3>2.3 估计<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<h3>2.3 贝叶斯定理<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id23">
+<h4>基本概念<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><p>概率</p></li>
+<li><p>条件概率</p></li>
+<li><p>联合概率</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id24">
+<h4>贝叶斯定理<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>联合概率满足乘法交换律：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(AB)  = P(BA)\)</span></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>乘法公式：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(AB) = P(A)P(B|A)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(BA) = P(B)P(A|B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A)P(B|A) = P(B)P(A|B)\)</span></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>贝叶斯定理：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(A|B) = \frac{P(A)P(B|A)}{P(B)}\)</span></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>对于涉及条件概率的很多问题，贝叶斯定理提供了一个分而治之的策略。</p></li>
+<li><p>如果 <span class="math notranslate nohighlight">\(P(A|B)\)</span> 难以计算，或难以用实验衡量，可以检查计算贝叶斯定理中的其他项是否更容易，如 <span class="math notranslate nohighlight">\(P(B|A)\)</span>，
+<span class="math notranslate nohighlight">\(P(A)\)</span> 和 <span class="math notranslate nohighlight">\(P(B)\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id25">
+<h3>2.4 统计计算<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h4>2.4.1 分布<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+<p>在统计学中，分布是一组值及其对应的概率。</p>
+<p>使用示例：</p>
+<blockquote>
+<div><ul>
+<li><p>建立一个 <code class="docutils literal notranslate"><span class="pre">Pmf</span></code> 来表示六面筛骰子的结果分布</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">thinkbayes2</span> <span class="kn">import</span> <span class="n">Pmf</span>
+
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">Pmf</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]:</span>
+    <span class="n">pmf</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mf">6.0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pmf</span><span class="o">.</span><span class="n">Prob</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pmf</span><span class="o">.</span><span class="n">Prob</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>计算每个单词在一个词序列中出现的次数</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">thinkbayes2</span> <span class="kn">import</span> <span class="n">Pmf</span>
+
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">Pmf</span><span class="p">()</span>
+<span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;the&quot;</span><span class="p">,</span> <span class="s2">&quot;wang&quot;</span><span class="p">,</span> <span class="s2">&quot;zhe&quot;</span><span class="p">,</span> <span class="s2">&quot;feng&quot;</span><span class="p">,</span> <span class="s2">&quot;the&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
+    <span class="n">pmf</span><span class="o">.</span><span class="n">Incr</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pmf</span><span class="o">.</span><span class="n">Prob</span><span class="p">(</span><span class="s2">&quot;the&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pmf</span><span class="o">.</span><span class="n">Prob</span><span class="p">(</span><span class="s2">&quot;the&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="n">pmf</span><span class="o">.</span><span class="n">Normalize</span><span class="p">())</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id27">
+<h4>2.4.2 曲奇饼问题<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<p>假设是事件 <span class="math notranslate nohighlight">\(B_1\)</span> 和 <span class="math notranslate nohighlight">\(B_2\)</span></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">thinkbayes2</span> <span class="kn">import</span> <span class="n">Pmf</span>
+
+<span class="c1"># 先验分布</span>
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">Pmf</span><span class="p">()</span>
+<span class="n">pmf</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s2">&quot;Bowl1&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">pmf</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s2">&quot;Bowl2&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># 更新基于数据(拿到一块香草曲奇饼) 后的分布，将先验分别乘以对应的似然度</span>
+<span class="n">pmf</span><span class="o">.</span><span class="n">Mult</span><span class="p">(</span><span class="s2">&quot;Bowl1&quot;</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">pmf</span><span class="o">.</span><span class="n">Mult</span><span class="p">(</span><span class="s2">&quot;Bowl2&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># 分布归一化</span>
+<span class="n">pmf</span><span class="o">.</span><span class="n">Normalize</span><span class="p">()</span>
+
+<span class="c1"># 后验分布</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pmf</span><span class="o">.</span><span class="n">Prob</span><span class="p">(</span><span class="s2">&quot;Bowl1&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pmf</span><span class="o">.</span><span class="n">Prob</span><span class="p">(</span><span class="s2">&quot;Bowl2&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>贝叶斯框架:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>from thinkbayes2 import Pmf
+
+class Cookie(Pmf):
+
+    def __init__(self, hypos):
+        Pmf.__init__(self)
+        for hypo in hypos:
+            self.Set(hypo, 1)
+        self.Normalize()
+
+    def Update(self, data):
+        for hypo in self.Values():
+            like = self.Likelihood(data, hypo)
+            self.Mult(hypo, like)
+        self.Normalize()
+
+    mixes = {
+        &quot;Bowl1&quot;: dict(
+            vanilla = 0.75, chocolate = 0.25
+        ),
+        &quot;Bowl2&quot;: dict(
+            vanilla = 0.5， chocolate = 0.5
+        )
+    }
+    def Likelihood(self, data, hypo):
+        mix = self.mixes(hypo)
+        like = mix[data]
+        return like
+
+hypos = [&quot;Bowl1&quot;, &quot;Bowl2&quot;]
+pmf = Cookie(hypos)
+
+# 更新
+pmf.Update(&quot;vanilla&quot;)
+
+# 打印每个假设的后验概率
+for hypo, prob in pmf.Items():
+    print(hypo, prob)
+
+# 推广到从同一个碗取不只一个曲奇饼(带替换)的情形
+dataset = [&quot;vanilla&quot;, &quot;chocolate&quot;, &quot;vanilla&quot;]
+for data in dataset:
+    pmf.Update(data)
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="monty-hall">
+<h4>2.4.3 Monty Hall 难题<a class="headerlink" href="#monty-hall" title="Permalink to this headline">¶</a></h4>
+<p>Monty Hall 类实现：</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Monty</span><span class="p">(</span><span class="n">Pmf</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hypos</span><span class="p">):</span>
+        <span class="n">Pmf</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">hypo</span> <span class="ow">in</span> <span class="n">hypos</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">hypo</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Normalize</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">hypo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Values</span><span class="p">():</span>
+            <span class="n">like</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Likelihood</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">hypo</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Mult</span><span class="p">(</span><span class="n">hypo</span><span class="p">,</span> <span class="n">like</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Normalize</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">Likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">hypo</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">hypo</span> <span class="o">==</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">hypo</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.5</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+
+<span class="n">hypos</span> <span class="o">=</span> <span class="s2">&quot;ABC&quot;</span>
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">Monty</span><span class="p">(</span><span class="n">hypos</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;B&quot;</span>
+<span class="n">pmf</span><span class="o">.</span><span class="n">Update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">hypo</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">pmf</span><span class="o">.</span><span class="n">Items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">hypo</span><span class="p">,</span> <span class="n">prob</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>封装框架:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Suite</span><span class="p">(</span><span class="n">Pmf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;代表一套假设及其概率&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hypo</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()):</span>
+        <span class="sd">&quot;&quot;&quot;初始化分配&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;更新基于该数据的每个假设&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;打印出假设和它们的概率&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">thinkbayes2</span> <span class="kn">import</span> <span class="n">Suite</span>
+
+<span class="k">class</span> <span class="nc">Monty</span><span class="p">(</span><span class="n">Suite</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">Likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">hypo</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">hypo</span> <span class="o">==</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">hypo</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.5</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+
+<span class="n">suite</span> <span class="o">=</span> <span class="n">Monty</span><span class="p">(</span><span class="s2">&quot;ABC&quot;</span><span class="p">)</span>
+<span class="n">suite</span><span class="o">.</span><span class="n">Update</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">suite</span><span class="o">.</span><span class="n">Print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="m-m">
+<h4>2.4.4 M&amp;M 豆问题<a class="headerlink" href="#m-m" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mix94</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">brown</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">yellow</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">red</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">green</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orange</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">tan</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">mix96</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">blue</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span> <span class="n">green</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">orange</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> <span class="n">yellow</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">red</span> <span class="o">=</span> <span class="mi">13</span><span class="p">,</span> <span class="n">brown</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">hypoA</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">bag1</span> <span class="o">=</span> <span class="n">mix94</span><span class="p">,</span> <span class="n">bag2</span> <span class="o">=</span> <span class="n">mix96</span><span class="p">)</span>
+<span class="n">hypoB</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">bag1</span> <span class="o">=</span> <span class="n">mix94</span><span class="p">,</span> <span class="n">bag2</span> <span class="o">=</span> <span class="n">mix94</span><span class="p">)</span>
+
+<span class="n">hypotheses</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="n">hypoA</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">hypoB</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">M_and_M</span><span class="p">(</span><span class="n">Suite</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">Likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">hypo</span><span class="p">):</span>
+        <span class="n">bag</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="n">mix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hypotheses</span><span class="p">[</span><span class="n">hypo</span><span class="p">][</span><span class="n">bag</span><span class="p">]</span>
+        <span class="n">like</span> <span class="o">=</span> <span class="n">mix</span><span class="p">[</span><span class="n">color</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">like</span>
+
+<span class="n">suite</span> <span class="o">=</span> <span class="n">M_and_M</span><span class="p">(</span><span class="s2">&quot;AB&quot;</span><span class="p">)</span>
+<span class="n">suite</span><span class="o">.</span><span class="n">Update</span><span class="p">((</span><span class="s2">&quot;bag1&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">))</span>
+<span class="n">suite</span><span class="o">.</span><span class="n">Update</span><span class="p">((</span><span class="s2">&quot;bag2&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">))</span>
+<span class="n">suite</span><span class="o">.</span><span class="n">Print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Suite 是一个抽象类(abstract type)，这意味着它定义了 Suite 应该有额接口，但并不提供完整的实现. Suite 接口包括了 Update 和 Likelihood 方法，但只提供了 Update 的实现，没有 Likelihood 的实现。</p></li>
+<li><p>具体类(concrerte type)是继承自抽象父类的类，而且提供了缺失方法的实现。</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id28">
+<h3>2.5 估计<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>

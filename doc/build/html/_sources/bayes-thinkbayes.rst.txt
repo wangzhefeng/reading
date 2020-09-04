@@ -1,7 +1,6 @@
 
 贝叶斯思维
-===========
-
+=============
 
 内容提要：
 
@@ -238,6 +237,31 @@
 使用 Python 代码实现的 Bayes 方法不是数学，离散近似而不是连续数学，
 结果就是原本需要积分的地方变成了求和，概率分布的大多数操作变成了简单的循环。
 
+2.1 建模和近似
+~~~~~~~~~~~~~~~~~~~
+
+在应用任何分析方法前，必须决定真实世界中的哪些部分可以被包括进模型，而哪些细节可以被抽象掉。
+
+在解决问题的过程中，明确建模过程作为其中一部分是重要的，因为这会提醒我们考虑建模误差(也就是建模当中简化和假设带来的误差)。
+
+本书中很多方法都基于离散分布，这让一些人担心数值误差，但对于真实世界的问题，数值误差几乎从来都小于建模误差。
+再者，离散方法总能允许较好的建模选择，我宁愿要一个近似的良好的模型也不要一个精确但却糟糕的模型。
+
+从另一个角度看，连续方法常在性能上有优势，比如能以常数时间复杂度的解法替换掉线性或者平方时间复杂度的解法。
+
+总的来说，推荐这些步骤的一个通用流程如下：
+
+    - 1.当研究问题时，以一个简化模型开始，并以清晰、好理解、实证无误的代码实现它。注意力集中在好的建模决策而不是优化上
+
+    - 2.一旦简化模型有效，再找到最大错误来源。这可能需要增加离散近似过程当中值的数量，或者增加蒙特卡洛方法中的迭代数，或者增加模型细节。
+
+    - 3.如果对你的应用而言性能就已经足够了，则没必要优化。但如果要做，有两个方向可以考虑：评估你的代码以寻找优化空间，例如，如果你缓存了
+      前面的计算结果，你也许能避免重复冗余的计算；或者可以去发现找到计算捷径的分析方法。
+
+
+2.2 代码利用
+~~~~~~~~~~~~~~~~~~~
+
 书信息：
 
     - https://greenteapress.com/wp/think-bayes/
@@ -257,17 +281,263 @@
         $ python install_test.py
 
 
-2.1 贝叶斯定理
+2.3 贝叶斯定理
 ~~~~~~~~~~~~~~~~~~~~~
 
+基本概念
+^^^^^^^^^^^^^^^^
+
+    - 概率
+
+    - 条件概率
+
+    - 联合概率
 
 
-2.2 统计计算
+贝叶斯定理
+^^^^^^^^^^^^^^^^
+
+- 联合概率满足乘法交换律：
+
+    - :math:`P(AB)  = P(BA)` 
+
+- 乘法公式：
+
+    - :math:`P(AB) = P(A)P(B|A)`
+
+    - :math:`P(BA) = P(B)P(A|B)`
+
+    - :math:`P(A)P(B|A) = P(B)P(A|B)` 
+
+- 贝叶斯定理：
+
+    - :math:`P(A|B) = \frac{P(A)P(B|A)}{P(B)}` 
+
+.. note:: 
+
+    - 对于涉及条件概率的很多问题，贝叶斯定理提供了一个分而治之的策略。
+
+    - 如果 :math:`P(A|B)` 难以计算，或难以用实验衡量，可以检查计算贝叶斯定理中的其他项是否更容易，如 :math:`P(B|A)`，
+      :math:`P(A)` 和 :math:`P(B)`.  
+
+2.4 统计计算
 ~~~~~~~~~~~~~~~~~~~~~~
 
+2.4.1 分布
+^^^^^^^^^^^^^^^^^^^^^^^
+
+在统计学中，分布是一组值及其对应的概率。
+
+使用示例：
+
+    - 建立一个 ``Pmf`` 来表示六面筛骰子的结果分布
+
+        .. code-block:: python
+
+            from thinkbayes2 import Pmf
+
+            pmf = Pmf()
+            for x in [1, 2, 3, 4, 5, 6]:
+                pmf.Set(x, 1/6.0)
+            
+            print(pmf.Prob(1))
+            print(pmf.Prob(7))
 
 
-2.3 估计
+    - 计算每个单词在一个词序列中出现的次数
+
+        .. code-block:: python
+        
+            from thinkbayes2 import Pmf
+            
+            pmf = Pmf()
+            word_list = ["the", "wang", "zhe", "feng", "the"]
+            for word in word_list:
+                pmf.Incr(word, 1)
+            
+            print(pmf.Prob("the"))
+            print(pmf.Prob("the") / pmf.Normalize())
+
+2.4.2 曲奇饼问题
+^^^^^^^^^^^^^^^^^^^^^^^
+
+假设是事件 :math:`B_1` 和 :math:`B_2`
+
+    .. code-block:: python
+
+        from thinkbayes2 import Pmf
+
+        # 先验分布
+        pmf = Pmf()
+        pmf.Set("Bowl1", 0.5)
+        pmf.Set("Bowl2", 0.5)
+
+        # 更新基于数据(拿到一块香草曲奇饼) 后的分布，将先验分别乘以对应的似然度
+        pmf.Mult("Bowl1", 0.75)
+        pmf.Mult("Bowl2", 0.5)
+
+        # 分布归一化
+        pmf.Normalize()
+
+        # 后验分布
+        print(pmf.Prob("Bowl1"))
+        print(pmf.Prob("Bowl2"))
+
+贝叶斯框架:
+
+    .. code-block:: python
+
+        from thinkbayes2 import Pmf
+        
+        class Cookie(Pmf):
+
+            def __init__(self, hypos):
+                Pmf.__init__(self)
+                for hypo in hypos:
+                    self.Set(hypo, 1)
+                self.Normalize()
+            
+            def Update(self, data):
+                for hypo in self.Values():
+                    like = self.Likelihood(data, hypo)
+                    self.Mult(hypo, like)
+                self.Normalize()
+            
+            mixes = {
+                "Bowl1": dict(
+                    vanilla = 0.75, chocolate = 0.25
+                ),
+                "Bowl2": dict(
+                    vanilla = 0.5， chocolate = 0.5
+                )
+            }
+            def Likelihood(self, data, hypo):
+                mix = self.mixes(hypo)
+                like = mix[data]
+                return like
+
+        hypos = ["Bowl1", "Bowl2"]
+        pmf = Cookie(hypos)
+
+        # 更新
+        pmf.Update("vanilla")
+
+        # 打印每个假设的后验概率
+        for hypo, prob in pmf.Items():
+            print(hypo, prob)
+        
+        # 推广到从同一个碗取不只一个曲奇饼(带替换)的情形
+        dataset = ["vanilla", "chocolate", "vanilla"]
+        for data in dataset:
+            pmf.Update(data)
+
+2.4.3 Monty Hall 难题
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Monty Hall 类实现：
+
+    .. code-block:: python
+
+        class Monty(Pmf):
+
+            def __init__(self, hypos):
+                Pmf.__init__(self)
+                for hypo in hypos:
+                    self.Set(hypo, 1)
+                self.Normalize()
+
+            def Update(self, data):
+                for hypo in self.Values():
+                    like = self.Likelihood(data, hypo)
+                    self.Mult(hypo, like)
+                self.Normalize()
+
+            def Likelihood(self, data, hypo):
+                if hypo == data:
+                    return 0
+                elif hypo == "A":
+                    return 0.5
+                else:
+                    return 1
+
+        hypos = "ABC"
+        pmf = Monty(hypos)
+        data = "B"
+        pmf.Update(data)
+
+        for hypo, prob in pmf.Items():
+            print(hypo, prob)
+
+封装框架:
+
+    .. code-block:: python
+
+        class Suite(Pmf):
+            """代表一套假设及其概率"""
+
+            def __init__(self, hypo = tuple()):
+                """初始化分配"""
+                pass
+            
+            def Update(self, data):
+                """更新基于该数据的每个假设"""
+                pass
+
+            def Print(self):
+                """打印出假设和它们的概率"""
+                pass
+
+    .. code-block:: python
+
+        from thinkbayes2 import Suite
+
+        class Monty(Suite):
+            
+            def Likelihood(self, data, hypo):
+                if hypo == data:
+                    return 0
+                elif hypo == "A":
+                    return 0.5
+                else:
+                    return 1
+        
+        suite = Monty("ABC")
+        suite.Update("B")
+        suite.Print()
+
+2.4.4 M&M 豆问题
+^^^^^^^^^^^^^^^^^^^^^^
+
+    .. code-block:: python
+
+        mix94 = dict(brown = 30, yellow = 20, red = 20, green = 10, orange = 10, tan = 10)
+        mix96 = dict(blue = 24, green = 20, orange = 16, yellow = 14, red = 13, brown = 13)
+        hypoA = dict(bag1 = mix94, bag2 = mix96)
+        hypoB = dict(bag1 = mix94, bag2 = mix94)
+
+        hypotheses = dict(A = hypoA, B = hypoB)
+
+        class M_and_M(Suite):
+
+            def Likelihood(self, data, hypo):
+                bag, color = data
+                mix = self.hypotheses[hypo][bag]
+                like = mix[color]
+                return like
+
+        suite = M_and_M("AB")
+        suite.Update(("bag1", "yellow"))
+        suite.Update(("bag2", "green"))
+        suite.Print()
+
+.. note:: 
+
+    - Suite 是一个抽象类(abstract type)，这意味着它定义了 Suite 应该有额接口，但并不提供完整的实现. Suite 接口包括了 Update 和 Likelihood 方法，但只提供了 Update 的实现，没有 Likelihood 的实现。
+
+    - 具体类(concrerte type)是继承自抽象父类的类，而且提供了缺失方法的实现。
+
+
+2.5 估计
 ~~~~~~~~~~~~~~~~~~~~~~
 
 
