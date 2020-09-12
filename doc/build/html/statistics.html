@@ -92,27 +92,38 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="book-list.html">Book List</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">统计学</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#header-n6">1.统计学概念</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#header-n8">内容</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#header-n37">大数定律、中心极限定理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.统计学概念</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">大数定律、中心极限定理</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#header-n59">2.统计推断理论</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#header-n78">参数估计</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#header-n80">假设检验</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#header-n84">假设检验的基本思想</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#header-n101">假设检验的基本步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">2.统计推断理论</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">参数估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">假设检验</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">假设检验的基本思想</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">假设检验的基本步骤</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#header-n189">3.抽样分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">3.抽样分布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id11">4.不确定性</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id12">4.1 非传递性骰子</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id13">4.2 医疗概率</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id14">4.3 混沌</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id15">4.4 社会选择与阿罗定理</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id16">4.5 纽科姆悖论</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">5.偏度、峰度</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id18">5.1 偏度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">5.2 峰度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python">5.3 Python 实现</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">6.回归分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">7.方差分析</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test">7.1 test</a></li>
 </ul>
 </li>
 </ul>
@@ -197,14 +208,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="header-n2">
-<span id="id1"></span><h1>统计学<a class="headerlink" href="#header-n2" title="Permalink to this headline">¶</a></h1>
-<p>整理一下统计学中常用的概念、方法论。作为一个统计学出身的人，遇到这些问题时希望不要被难倒。</p>
-<div class="section" id="header-n6">
-<span id="id2"></span><h2>1.统计学概念<a class="headerlink" href="#header-n6" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="header-n8">
-<span id="id3"></span><h3>内容<a class="headerlink" href="#header-n8" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+  <div class="section" id="id1">
+<h1>统计学<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>整理一下统计学中常用的概念、方法论。作为一个统计学出身的人，遇到这些问题时希望不要被难倒</p>
+</div></blockquote>
+<div class="section" id="id2">
+<h2>1.统计学概念<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>内容<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
 <li><p>大数定律、中心极限定理</p></li>
 <li><p>贝叶斯公式、贝叶斯定理</p></li>
 <li><p>参数估计</p>
@@ -224,9 +238,10 @@
 <li><p>因子分析</p></li>
 <li><p>聚类分析</p></li>
 </ul>
+</div></blockquote>
 </div>
-<div class="section" id="header-n37">
-<span id="id4"></span><h3>大数定律、中心极限定理<a class="headerlink" href="#header-n37" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>大数定律、中心极限定理<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>各种解释：</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B">维基百科</a></p>
@@ -259,8 +274,8 @@
 <p><strong>德莫佛－拉普拉斯定理</strong></p>
 </div>
 </div>
-<div class="section" id="header-n59">
-<span id="id5"></span><h2>2.统计推断理论<a class="headerlink" href="#header-n59" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>2.统计推断理论<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>参数估计</p>
 <ul>
@@ -276,17 +291,17 @@
 </li>
 <li><p>抽样分布</p></li>
 </ul>
-<div class="section" id="header-n78">
-<span id="id6"></span><h3>参数估计<a class="headerlink" href="#header-n78" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>参数估计<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="header-n80">
-<span id="id7"></span><h3>假设检验<a class="headerlink" href="#header-n80" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>假设检验<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>假设检验(hypothesis
 test)是由K.Pearson于20世纪初提出的，之后由费希尔进行了细化，并最终由Neyman和E.Pearson提出了较完整的假设检验理论。</p>
 </div></blockquote>
-<div class="section" id="header-n84">
-<span id="id8"></span><h4>假设检验的基本思想<a class="headerlink" href="#header-n84" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id8">
+<h4>假设检验的基本思想<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><p>假如实验结果与原假设H发生矛盾就拒绝原假设H，否则就接受原假设H</p>
 </div></blockquote>
@@ -304,8 +319,8 @@ test)是由K.Pearson于20世纪初提出的，之后由费希尔进行了细化�
 <li><p>若假设可用一个参数的集合表示，该假设检验问题称为<code class="docutils literal notranslate"><span class="pre">参数假设检验</span></code>，否则称为<code class="docutils literal notranslate"><span class="pre">非参数假设检验问题</span></code>，上面的问题就是一个参数假设检验问题，而对假设“总体为正太分布”作出检验的问题就是一个非参数假设检验问题；</p></li>
 </ul>
 </div>
-<div class="section" id="header-n101">
-<span id="id9"></span><h4>假设检验的基本步骤<a class="headerlink" href="#header-n101" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id9">
+<h4>假设检验的基本步骤<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
 <ul>
 <li><p>建立假设</p>
 <ul class="simple">
@@ -409,8 +424,8 @@ function)：每一个检验都无法避免犯错误的可能，但无法找到�
 </div>
 </div>
 </div>
-<div class="section" id="header-n189">
-<span id="id10"></span><h2>3.抽样分布<a class="headerlink" href="#header-n189" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h2>3.抽样分布<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="id11">
 <h2>4.不确定性<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
@@ -428,6 +443,98 @@ function)：每一个检验都无法避免犯错误的可能，但无法找到�
 </div>
 <div class="section" id="id16">
 <h3>4.5 纽科姆悖论<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>5.偏度、峰度<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h3>5.1 偏度<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>偏度（skewness）又称偏态、偏态系数，是描述数据分布偏斜方向和程度的度量，
+其是衡量数据分布非对称程度的数字特征。对于随机变量 <span class="math notranslate nohighlight">\(X\)</span>，其偏度是样本的三阶标准化矩</p>
+<blockquote>
+<div><ul>
+<li><p><span class="math notranslate nohighlight">\(Skew(x) = E[(\frac{(X-\mu)^{3}}{\sigma})] = \frac{E(X^{3})-3\mu \sigma^{2} - \mu^{3}}{\sigma^{3}}\)</span></p></li>
+<li><p>偏度的衡量是相对于正态分布来说，正态分布的偏度为0。因此我们说:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>若数据分布是对称的，偏度为0</p></li>
+<li><p>若偏度&gt;0，则可认为分布为右偏，也叫正偏，即分布有一条长尾在右</p></li>
+<li><p>若偏度&lt;0，则可认为分布为左偏，也叫负偏，即分布有一条长尾在左</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3>5.2 峰度<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>峰度（Kurtosis）则是描述数据分布陡峭或平滑的统计量，通过对峰度的计算，
+我们能够判定数据分布相对于正态分布而言是更陡峭还是平缓。对于随机变量 <span class="math notranslate nohighlight">\(X\)</span>，
+其峰度为样本的四阶标准中心矩</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Kurt(x) = E[(\frac{(X-\mu)^{4}}{\sigma})] = \frac{E[(X-\mu)^4]}{(E[[(X-\mu)^2]])^2}\)</span></p></li>
+<li><p>当峰度系数 &gt; 0，从形态上看，它相比于正态分布要更陡峭或尾部更厚</p></li>
+<li><p>峰度系数 &lt; 0，从形态上看，则它相比于正态分布更平缓或尾部更薄</p></li>
+<li><p>在实际环境当中，如果一个分部是厚尾的，这个分布往往比正态分布的尾部具有更大的“质量”，
+即含又更多的极端值</p></li>
+<li><p>我们常用的几个分布中，正态分布的峰度为 0，均匀分布的峰度为 -1.2，指数分布的峰度为 6</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="python">
+<h3>5.3 Python 实现<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.stats.api</span> <span class="k">as</span> <span class="nn">sms</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat</span> <span class="kn">import</span> <span class="n">lzip</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span>
+
+<span class="c1"># data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="c1"># data scatter plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;distance&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">],</span> <span class="s2">&quot;bo-&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Linear Regression</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="s2">&quot;loss ~ distance&quot;</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># omnibus 检验</span>
+<span class="n">omnibus_label</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Omnibus K-squared test&quot;</span><span class="p">,</span> <span class="s2">&quot;Chi-squared(2) p-value&quot;</span><span class="p">]</span>
+<span class="n">omnibus_test</span> <span class="o">=</span> <span class="n">sms</span><span class="o">.</span><span class="n">omni_normtest</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
+<span class="n">omnibus_results</span> <span class="o">=</span> <span class="n">lzip</span><span class="p">(</span><span class="n">omnibus_label</span><span class="p">,</span> <span class="n">omnibus_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jb_results</span><span class="p">)</span>
+
+<span class="c1"># jarque_bera 检验</span>
+<span class="n">jb_label</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jarque-Bear test&quot;</span><span class="p">,</span> <span class="s2">&quot;Chi-squared(2) p-value&quot;</span><span class="p">,</span> <span class="s2">&quot;Skewness&quot;</span><span class="p">,</span> <span class="s2">&quot;Kurtosis&quot;</span><span class="p">]</span>
+<span class="n">jb_test</span> <span class="o">=</span> <span class="n">sms</span><span class="o">.</span><span class="n">jarque_bera</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
+<span class="n">jb_results</span> <span class="o">=</span> <span class="n">lzip</span><span class="p">(</span><span class="n">jb_label</span><span class="p">,</span> <span class="n">jb_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jb_results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>6.回归分析<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id21">
+<h2>7.方差分析<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="test">
+<h3>7.1 test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
