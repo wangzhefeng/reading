@@ -383,14 +383,12 @@
         print(pmf.Prob("Bowl1"))
         print(pmf.Prob("Bowl2"))
 
-贝叶斯框架:
+- 贝叶斯框架:
 
     .. code-block:: python
 
         from thinkbayes2 import Pmf
-        
         class Cookie(Pmf):
-
             def __init__(self, hypos):
                 Pmf.__init__(self)
                 for hypo in hypos:
@@ -409,7 +407,7 @@
                 ),
                 "Bowl2": dict(
                     vanilla = 0.5， chocolate = 0.5
-                )
+                ),
             }
             def Likelihood(self, data, hypo):
                 mix = self.mixes(hypo)
@@ -425,7 +423,6 @@
         # 打印每个假设的后验概率
         for hypo, prob in pmf.Items():
             print(hypo, prob)
-        
         # 推广到从同一个碗取不只一个曲奇饼(带替换)的情形
         dataset = ["vanilla", "chocolate", "vanilla"]
         for data in dataset:

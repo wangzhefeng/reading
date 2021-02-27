@@ -32,7 +32,7 @@
 理清思路，表达自己的技巧
 ---------------------------
 
-.. image:: ../images/base.png
+.. image:: images/base.png
 
 1. 逻辑性语言所需要的 3 个重点
     
@@ -60,7 +60,7 @@ Step 1 金字塔图——组织语言, 快速表达
 
     论点 ==> 结论 ==> 理由 ==> 行动
 
-.. image:: ../images/jinzita.png
+.. image:: images/jinzita.png
 
 
 

@@ -141,8 +141,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="error.html">误差理论与数据处理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SPC.html">统计过程控制理论与实践</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6sigma.html">六西格玛</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6sigma_resolution.html">六西格玛革命</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jingyisixiang.html">精益思想</a></li>
 <li class="toctree-l1"><a class="reference internal" href="business-knowledge.html">商业知识</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-structure.html">数据结构</a></li>
@@ -150,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="seven-habits-of-efficient-people.html">习惯成为一个高效的人</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statistic-men.html">读《漫谈现代统计“四大天王”》</a></li>
 <li class="toctree-l1"><a class="reference internal" href="protocol.html">互联网协议(Internet Protocol Suite)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">运筹学</a></li>
 </ul>
 
             
@@ -663,12 +662,11 @@ $ python install_test.py
 </pre></div>
 </div>
 </div></blockquote>
-<p>贝叶斯框架:</p>
+<ul>
+<li><p>贝叶斯框架:</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>from thinkbayes2 import Pmf
-
 class Cookie(Pmf):
-
     def __init__(self, hypos):
         Pmf.__init__(self)
         for hypo in hypos:
@@ -687,7 +685,7 @@ class Cookie(Pmf):
         ),
         &quot;Bowl2&quot;: dict(
             vanilla = 0.5， chocolate = 0.5
-        )
+        ),
     }
     def Likelihood(self, data, hypo):
         mix = self.mixes(hypo)
@@ -703,7 +701,6 @@ pmf.Update(&quot;vanilla&quot;)
 # 打印每个假设的后验概率
 for hypo, prob in pmf.Items():
     print(hypo, prob)
-
 # 推广到从同一个碗取不只一个曲奇饼(带替换)的情形
 dataset = [&quot;vanilla&quot;, &quot;chocolate&quot;, &quot;vanilla&quot;]
 for data in dataset:
@@ -711,6 +708,8 @@ for data in dataset:
 </pre></div>
 </div>
 </div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="monty-hall">
 <h4>2.4.3 Monty Hall 难题<a class="headerlink" href="#monty-hall" title="Permalink to this headline">¶</a></h4>

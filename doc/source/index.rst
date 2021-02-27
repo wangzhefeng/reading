@@ -18,8 +18,6 @@ Welcome to reading's documentation!
    bayes-thinkbayes
    error
    SPC
-   6sigma
-   6sigma_resolution
    jingyisixiang
    business-knowledge
    data-structure
@@ -27,3 +25,4 @@ Welcome to reading's documentation!
    seven-habits-of-efficient-people
    statistic-men
    protocol
+   operations

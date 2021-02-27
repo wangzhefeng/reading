@@ -6,7 +6,7 @@
 1948 年，美国数学家克劳德·香农发表论文《通信的数学理论》(A Mathematical
 Theory of Communication)，奠定了信息论的基础。
 
-.. figure:: ../images/shannon.jpg
+.. figure:: images/shannon.jpg
    :alt: 
 
 今天，信息论在信号处理、数据压缩、自然语言处理等许多领域，起着关键的作用。虽然，它的数学形式比较复杂，但是核心思想非常简单，只需要中学数学就能理解。
